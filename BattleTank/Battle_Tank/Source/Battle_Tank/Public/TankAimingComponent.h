@@ -9,6 +9,7 @@
 #include "TankAimingComponent.generated.h"
 
  // Forward Declaration
+class UTankTurret;
 class UTankBarrel;
 
 // Holds 
@@ -20,6 +21,8 @@ class BATTLE_TANK_API UTankAimingComponent : public UActorComponent
 private:	
 
 	UTankBarrel * Barrel = nullptr;
+	UTankTurret * Turret = nullptr;
+
 
 protected:
 
@@ -27,12 +30,11 @@ public:
 	// Sets default values for this component's properties
 	UTankAimingComponent();
 
-	// TODO add SetTurretReference
+	void SetTurretReference(UTankTurret* TurretToSet);
+	void SetBarrelReference(UTankBarrel* BarrelToSet);
 
 	void AimAt(FVector HitLocation, float LaunchSpeed);
 
-	void SetBarrelReference(UTankBarrel* BarrelToSet);
-
 	void MoveBarrelTowards(FVector AimDirection);
-
+	void MoveTurretTowards(FVector AimDirection);
 };
