@@ -6,6 +6,8 @@
 #include "GameFramework/Actor.h"
 #include "Projectile.generated.h"
 
+class UProjectileMovementComponent;
+
 UCLASS()
 class BATTLE_TANK_API AProjectile : public AActor
 {
@@ -28,5 +30,4 @@ protected:
 private:
 
 	UProjectileMovementComponent* ProjectileMovement = nullptr;
-	
 };

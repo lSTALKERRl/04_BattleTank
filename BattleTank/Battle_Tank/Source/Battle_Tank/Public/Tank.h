@@ -2,7 +2,6 @@
 
 #pragma once
 
-#include "TankAimingComponent.h"
 #include "CoreMinimal.h"
 #include "Tank.generated.h"
 
@@ -43,12 +42,18 @@ private:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	UPROPERTY(EditAnywhere, Category = Firing)
-	float LaunchSpeed = 100000.0; // TODO Find a sensible value
+	UPROPERTY(EditDefaultsOnly, Category = Firing)
+	float LaunchSpeed = 4000.0;																						// TODO Find a sensible value
 
-	UPROPERTY(EditAnywhere, Category = Setup)
+	UPROPERTY(EditDefaultsOnly, Category = Firing)
+	float ReloadTimeInSeconds = 3;
+
+	UPROPERTY(EditDefaultsOnly, Category = Setup)
 	TSubclassOf <AProjectile> ProjectileBlueprint;
 	
 	// Local barrel reference for spawning projectiles
 	UTankBarrel* Barrel = nullptr;
+
+	double LastFireTime = 0;
+
 };
