@@ -7,6 +7,7 @@
 
 // Forward declarations
 class AProjectile;
+class UTankMovementComponent;
 class UTankAimingComponent;
 class UTankTurret;
 class UTankBarrel;
@@ -29,7 +30,8 @@ public:
 	void SetTurretReference(UTankTurret* TurretToSet);
 
 protected:
-
+	UPROPERTY(BlueprintReadOnly)
+	UTankMovementComponent* TankMovementComponent = nullptr;
 	UTankAimingComponent* TankAimingComponent = nullptr;
 
 private:	
@@ -43,7 +45,7 @@ private:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	UPROPERTY(EditDefaultsOnly, Category = Firing)
-	float LaunchSpeed = 4000.0;																						// TODO Find a sensible value
+	float LaunchSpeed = 4000.0;		// TODO Find a sensible value
 
 	UPROPERTY(EditDefaultsOnly, Category = Firing)
 	float ReloadTimeInSeconds = 3;
