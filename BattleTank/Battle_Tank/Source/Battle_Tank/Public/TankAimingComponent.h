@@ -8,6 +8,14 @@
 #include "Components/SceneComponent.h"
 #include "TankAimingComponent.generated.h"
 
+UENUM()
+enum class EFiringState : uint8
+{
+	Reloading,
+	Aiming,
+	Ready
+};
+
  // Forward Declaration
 class UTankTurret;
 class UTankBarrel;
@@ -22,8 +30,9 @@ private:
 	UTankBarrel * Barrel = nullptr;
 	UTankTurret * Turret = nullptr;
 
-
 protected:
+	UPROPERTY(BlueprintReadOnly)
+	EFiringState FiringState = EFiringState::Reloading;
 
 public:	
 	// Sets default values for this component's properties
