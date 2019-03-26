@@ -9,14 +9,6 @@ void ATankPlayerController::BeginPlay()
 	Super::BeginPlay();
 
 	auto ControlledTank = GetControlledTank();
-	if (!ControlledTank)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("PlayerController not controlling a tank"))
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Player controlling: %s"), *ControlledTank->GetName())
-	}
 }
 
 void ATankPlayerController::Tick(float DeltaTime)
